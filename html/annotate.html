@@ -1,0 +1,21 @@
+<html>
+	<body>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('img').click(function(e) {
+					var x = e.pageX - 50;
+					var y = e.pageY - 50;
+					var i = $('<img src="/images/scale_circle2.png" style="position:absolute;left:'+x+';top:'+y+';" />');
+					i.appendTo('body');
+					var p = $('<input type="hidden" name="pick" value="'+e.pageX+','+e.pageY+'" />');
+					p.appendTo('#points');
+				});
+			});
+		</script>
+		<img style="position: absolute; left: 0; top: 0;" src="/images/{{.Image}}" width="900" height="900" />
+		<form method="POST" id="points" style="position:absolute;top:910">
+			<input type="submit" value="Done" />
+		</form>
+	</body>
+</html>

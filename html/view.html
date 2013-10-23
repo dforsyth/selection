@@ -1,0 +1,13 @@
+<html>
+	<body>
+		<img style="position:absolute;top:0;left:0;z-index:0" width="900" height="900" src="/images/{{.Image}}" />
+		{{ range $coord := .Coordinates }}
+		<img style="position:absolute;top:{{ $coord.Y }};left:{{ $coord.X }};" src="/images/scale_circle2.png" />
+		{{ end }}
+		{{ if .Annotated }}
+		<strong style="position:absolute;top:910;">This image has been annotated!</strong>
+		{{ else }}
+		<a style="position:absolute;top:910;" href="/annotate/{{.Image}}">go to annotate</a>
+		{{ end }}
+	</body>
+</html>
